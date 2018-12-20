@@ -1,0 +1,24 @@
+{
+    "name": "daxslab/yii2-cas-client",
+    "description": "CAS authentication for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii", "yii2", "authentication", "CAS"],
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.0",
+        "jasig/phpcas": "^1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "daxslab\\yii2casclient\\cas\\" : "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daxslab",
+            "email": "daxslab@daxslab.com"
+        }
+    ]
+}
