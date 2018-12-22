@@ -22,17 +22,12 @@ class AuthController extends \yii\web\Controller
 {
     public function actionLogin()
     {
-        try {
             $user = $this->module->casService->forceAuthentication();
             if ($user) {
                 Yii::$app->user->login($user);
             } else {
                 throw new \yii\web\HttpException(403, "This user has no access to the application.");
             }
-        } catch (\Exception $exception) {
-            \Yii::debug($exception->getMessage());
-            $this->redirect(Url::to(['auth/login']));
-        }
         return $this->goBack();
     }
 

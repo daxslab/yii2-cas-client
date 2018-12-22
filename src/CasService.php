@@ -81,15 +81,21 @@ class CasService extends \yii\base\BaseObject
             if (!$profile = $this->profileClass::findOne(['user_id' => $user->id]))
                 $profile = new $this->profileClass;
 
+            $localAttribures = $this->profileClass::getTableSchema()->columns;
             foreach ($remoteAttributes as $remoteKey => $remoteAttribute){
-                foreach ($this->profileClass::getTableSchema()->columns as $localKey => $value) {
+                foreach ($localAttribures as $localKey => $value) {
                     if ($remoteKey == $localKey){
                         $profile->$localKey = $remoteAttribute;
                     }
                 }
             }
-
             $profile->user_id = $user->id;
+
+            if (isset($localAttribures['created_by']))
+                $profile->created_by = $user->id;
+            if (isset($localAttribures['updated_by']))
+                $profile->updated_by = $user->id;
+
             $profile->save();
             return $user;
         }
