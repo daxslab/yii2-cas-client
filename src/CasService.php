@@ -71,6 +71,10 @@ class CasService extends \yii\base\BaseObject
             $user->username = $this->getUsername();
             $remoteAttributes = $this->getAttributes();
 
+            if (isset($remoteAttributes['id'])){
+                $user->id = $remoteAttributes['id'];
+            }
+
             if (isset($remoteAttributes['email']))
                 $user->email = $remoteAttributes['email'];
 
