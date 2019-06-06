@@ -64,8 +64,8 @@ class CasService extends \yii\base\BaseObject
         }
 
         if (phpCAS::forceAuthentication()){
-
-            if (!$user = $this->userClass::findOne(['username' => $this->getUsername()]))
+            $id = $this->getAttributes()['id'];
+            if (!$user = $this->userClass::findOne($id))
                 $user = new $this->userClass();
 
             $user->username = $this->getUsername();
@@ -158,7 +158,7 @@ class CasService extends \yii\base\BaseObject
      */
     public function setDebug($debug = true)
     {
-        phpCAS::setVerbose($debug);
+//        phpCAS::setVerbose($debug);
         return $this;
     }
 }
