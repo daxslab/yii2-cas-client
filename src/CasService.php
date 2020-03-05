@@ -22,6 +22,7 @@ class CasService extends \yii\base\BaseObject
     public $host;
     public $port;
     public $path;
+    public $protocol = 'https';
     public $profileClass;
     public $userClass;
 
@@ -41,7 +42,7 @@ class CasService extends \yii\base\BaseObject
         Yii::$app->session->open();
         // Init the phpCAS singleton
         phpCAS::setDebug(Yii::getAlias(self::LOGPATH));
-        phpCAS::client(CAS_VERSION_3_0, $this->host, (int) $this->port, $this->path);
+        phpCAS::client(CAS_VERSION_3_0, $this->host, (int) $this->port, $this->path, true, $this->protocol);
         if ($this->certfile) {
             phpCAS::setCasServerCACert($this->certfile);
         } else if ($this->certfile === false) {
