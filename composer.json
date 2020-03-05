@@ -6,7 +6,7 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.0",
-        "daxslab/phpcas": "dev-master"
+        "daxslab/phpcas": "~1.4.0"
     },
     "autoload": {
         "psr-4": {
