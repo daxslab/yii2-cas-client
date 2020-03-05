@@ -13,7 +13,7 @@
             "daxslab\\yii2casclient\\cas\\" : "src"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
         {
